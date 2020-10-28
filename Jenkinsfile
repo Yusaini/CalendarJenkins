@@ -1,6 +1,8 @@
 class Constants {
 
     static final String MASTER_BRANCH = 'master'
+    static final String QA_BRANCH = '1.0'
+    static final String DEV_BRANCH = '2.0'
 
     static final String QA_BUILD = 'Debug'
     static final String RELEASE_BUILD = 'Release'
