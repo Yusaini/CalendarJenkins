@@ -10,6 +10,11 @@ class Constants {
     static final String INTERNAL_TRACK = 'internal'
     static final String RELEASE_TRACK = 'release'
 }
+stage('Initialize')
+        {
+        def dockerHome = tool 'defaultdocker'
+        env.PATH = "${dockerHome}/bin:${env.PATH}"
+        }
 
 def getBuildType() {
     switch (env.BRANCH_NAME) {
@@ -44,11 +49,6 @@ pipeline {
         STORE_PASSWORD = credentials('storePassword')
     }
     stages {
-        stage('Initialize')
-        {
-        def dockerHome = tool 'defaultdocker'
-        env.PATH = "${dockerHome}/bin:${env.PATH}"
-        }
         
         stage('Run Tests') {
             steps {
