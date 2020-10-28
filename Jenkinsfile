@@ -44,6 +44,12 @@ pipeline {
         STORE_PASSWORD = credentials('storePassword')
     }
     stages {
+        stage('Initialize')
+        {
+        def dockerHome = tool 'defaultdocker'
+        env.PATH = "${dockerHome}/bin:${env.PATH}"
+        }
+        
         stage('Run Tests') {
             steps {
                 echo 'Running Tests'
